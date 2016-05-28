@@ -29,3 +29,19 @@ Build an instance of the Docker image using the **Dockerfile** in this repo (we'
 Run the image, providing the Slack API token as an environment variable.
 
     docker run -d -e PARENSBOT_SLACK_API_TOKEN=xxxx-xxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx slack-parensbot
+
+## License
+
+Copyright 2016 Matthew Barry
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
