@@ -16,24 +16,25 @@ class DelimStack {
       this.stack.splice(ix, 1);
     }
   }
+
+  unclosed() {
+    return this.stack.slice().reverse();
+  }
 }
 
-var delimStack;
-
-
-
 module.exports = (input) => {
-  var delimStack = new DelimStack();
+  let delimStack = new DelimStack();
 
-  var lexer = new Lexer();
+  let lexer = new Lexer();
   lexer
     .addRule(/\(/, () => delimStack.expect(')'))
     .addRule(/\[/, () => delimStack.expect(']'))
     .addRule(/\{/, () => delimStack.expect('}'))
     .addRule(/[)}\]]/, (lexeme) => delimStack.close(lexeme))
-    .addRule(/./, () => {});
+    .addRule(/./, () => {})
+    .addRule(/\r?\n/, () => {});
 
   lexer.setInput(input);
   while (lexer.lex());
-  return delimStack.stack;
+  return delimStack.unclosed();
 }
