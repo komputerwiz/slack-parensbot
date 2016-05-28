@@ -60,5 +60,7 @@ function handleMessage(bot, message) {
   }
 
   let unclosed = lex(message.text);
-  bot.reply(message, unclosed.join(''));
+  if (unclosed.length > 0) {
+    bot.reply(message, unclosed.join(''));
+  }
 }
